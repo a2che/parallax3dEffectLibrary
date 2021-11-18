@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Document</title>
+</head>
+<body>
+
+
+<header>
+	<div class="parallax" data-speed="0" id="art1"></div>
+	<div class="parallax" data-speed="170" id="art2"></div>
+	<div class="parallax" data-speed="270" id="art3"></div>
+	<div class="parallax" data-speed="53" id="art4"></div>
+	<div class="parallax" data-speed="-73" id="art5"></div>
+	<div class="parallax" data-speed="-112" id="art6"></div>
+	<div class="parallax" data-speed="-90" id="art7"></div>
+	<div class="parallax" data-speed="100" id="art8"></div>
+	<div class="parallax" data-speed="-120" id="art9"></div>
+</header>
+
+<section>
+	<p class="text">	</p>
+</section>
+
+	
+
+
+<script type="text/javascript">
+function castParallax() {
+
+	var opThresh = 350;
+	var opFactor = 750;
+
+
+	window.addEventListener("scroll", function(event){
+
+		var top = this.pageYOffset;
+
+		var layers = document.getElementsByClassName("parallax");
+		var layer, speed, yPos;
+		for (var i = 0; i < layers.length; i++) {
+			layer = layers[i];
+			speed = layer.getAttribute('data-speed');
+			var yPos = -(top * speed / 100);
+			layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
+
+		}
+	});
+
+
+}
+
+document.body.onload = castParallax();
+</script>
+</body>
+</html>
